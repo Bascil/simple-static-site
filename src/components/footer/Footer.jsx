@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="blog-footer">
         <p>
           <a href="https://www.linkedin.com/in/josphine-nzila-8407aa155/">
-            @josphinenzila
+            @josphinengina
           </a>
         </p>
         <p>
