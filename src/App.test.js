@@ -2,9 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
 test('clicking the button switches language to english', () => {
-  render(<App />);
+  const dom = render(<App />);
 
-  const link = screen.getByText('English');
+  const link = dom.container.querySelector('#en');
   fireEvent.click(link);
 
   expect(
@@ -25,7 +25,7 @@ test('clicking the button switches language to hindi', () => {
 
 test('simulates city selection', () => {
   const { getByTestId, getAllByTestId } = render(<App />);
-  //The value should be the key of the option
+
   fireEvent.change(getByTestId('select-city'), { target: { value: 1 } });
   let options = getAllByTestId('select-city-1');
   expect(options[0].value).toBe('283 PM2.5#12');
