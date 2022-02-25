@@ -47,12 +47,13 @@ const Article = ({ data }) => {
 
             <select
               name="city"
-              id="city"
+              data-testid="select-city"
               onChange={(e) => setCity(e.target.value)}
               className="mb-4"
             >
               <option value="">Select your City</option>
               <option
+                data-testid="select-city-1"
                 value={
                   `${data['compare-tabs_1_city_1_aqi']}` +
                   `#` +

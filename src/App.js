@@ -2,7 +2,6 @@ import './App.css';
 import React, { useState } from 'react';
 import Article from './components/article/Article';
 import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 
 import { useFetch } from './utils/useFetch';
@@ -12,11 +11,8 @@ function App() {
   const { data } = useFetch({ language: content });
 
   const handleClick = (lang) => {
-    console.log('language', lang);
     setContent(lang);
   };
-
-  console.log('content', content);
 
   return (
     <>
@@ -31,12 +27,14 @@ function App() {
             <div className="col-4 d-flex justify-content-end align-items-center">
               <a
                 className="btn btn-sm btn-outline-secondary"
+                id={'en'}
                 onClick={() => handleClick('en')}
               >
                 English
               </a>
               <a
                 className="btn btn-sm btn-outline-secondary"
+                id={'hi'}
                 onClick={() => handleClick('hi')}
               >
                 Hindi

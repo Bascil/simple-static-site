@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useFetch } from '../../utils/useFetch';
 
-const Header = ({ data }) => {
+const Header = ({ setData }) => {
+  const [content, setContent] = useState('en');
+  const { data } = useFetch({ language: content });
+
+  const handleClick = (lang) => {
+    console.log('language', lang);
+    setContent(lang);
+    setData(data);
+  };
+
   return (
     <div>
       <header className="blog-header py-3">
@@ -11,11 +21,16 @@ const Header = ({ data }) => {
             </a>
           </div>
           <div className="col-4 d-flex justify-content-end align-items-center">
-            <a className="link-secondary" href="#" aria-label="Search"></a>
-            <a className="btn btn-sm btn-outline-secondary" href="#">
+            <a
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => handleClick('en')}
+            >
               English
             </a>
-            <a className="btn btn-sm btn-outline-secondary" href="#">
+            <a
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => handleClick('hi')}
+            >
               Hindi
             </a>
           </div>
